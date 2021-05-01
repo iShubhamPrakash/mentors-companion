@@ -3,11 +3,18 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@chakra-ui/icons": "^1.0.12",
+		"@chakra-ui/react": "^1.6.0",
+		"@emotion/react": "^11",
+		"@emotion/styled": "^11",
+		"framer-motion": "^4",
+		"moment": "^2.29.1",
 		"node-sass": "4.14.1",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react-router-dom": "^5.2.0",
-		"react-scripts": "4.0.1"
+		"react-scripts": "4.0.1",
+		"recharts": "^2.0.9"
 	},
 	"scripts": {
 		"start": "react-scripts start",

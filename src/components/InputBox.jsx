@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Textarea, Button } from "@chakra-ui/react";
 
 export const InputBox = ({ setFeedbackdata }) => {
 	const [value, setValue] = useState("");
@@ -19,8 +20,12 @@ export const InputBox = ({ setFeedbackdata }) => {
 
 	return (
 		<div className="inputBox">
-			<textarea value={value} onChange={(e) => setValue(e.target.value)} />
-			<button onClick={handleAnalyse}>Analyse</button>
+			<Textarea
+				placeholder="Enter JSON data obtained from https://review-api.udacity.com/api/v1/me/student_feedbacks"
+				value={value}
+				onChange={(e) => setValue(e.target.value)}
+			/>
+			<Button onClick={handleAnalyse}>Analyse Feedback</Button>
 		</div>
 	);
 };

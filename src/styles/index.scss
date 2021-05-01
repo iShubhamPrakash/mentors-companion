@@ -3,26 +3,106 @@
 
 // Global CSS here
 .nav {
-	background: pink;
+	background: rgb(255, 255, 255);
+	height: 60px;
+	box-shadow: 0 3.4px 6.1px rgba(0, 0, 0, 0.008),
+		0 9.5px 16.9px rgba(0, 0, 0, 0.011), 0 22.9px 40.7px rgba(0, 0, 0, 0.013),
+		0 76px 135px rgba(0, 0, 0, 0.02);
+	position: sticky;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 1em;
+
+	#logo {
+		width: 35px;
+		height: 35px;
+		fill: #02b3e4;
+		cursor: pointer;
+	}
+
+	.websiteName {
+		font-size: 1.5em;
+		text-transform: capitalize;
+		padding-left: 0.5em;
+		padding-right: 1em;
+		font-weight: bold;
+		cursor: pointer;
+	}
+
+	.spacer {
+		flex-grow: 2;
+	}
+
+	.githubLink {
+		width: 30px;
+		height: 30px;
+		margin-right: 1em;
+	}
 }
 
 .app {
-	background: yellow;
+	background: #edf2f6;
+	padding-top: 1em;
 }
 
 .inputBox {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
+	margin: 1em;
+
+	textarea {
+		background: #fff;
+		box-shadow: 0 0px 15.2px rgba(0, 0, 0, 0.021),
+			0 0px 121px rgba(0, 0, 0, 0.04);
+		padding: 1em;
+	}
+
+	button {
+		width: 100%;
+		margin: 0.5em auto;
+		background: #d1dbe0;
+	}
 }
 
 .feedback_container {
-	background: greenyellow;
-
 	.feedback {
-		background: rgb(244, 244, 198);
+		background: rgb(255, 255, 255);
+		border-radius: 8px;
 		margin: 1em;
-		padding: 1em;
+		padding: 1em 0;
+		border: 1.5px rgb(222, 233, 243) solid;
+		box-shadow: 0 3.4px 6.1px rgba(0, 0, 0, 0.008),
+			0 9.5px 16.9px rgba(0, 0, 0, 0.011), 0 22.9px 40.7px rgba(0, 0, 0, 0.013),
+			0 76px 135px rgba(0, 0, 0, 0.02);
+		position: relative;
+		.review_link {
+			position: absolute;
+			right: 1em;
+			top: 1.2em;
+		}
+		.project_name {
+			color: #02b3e4;
+			// color: #053872;
+
+			cursor: pointer;
+		}
+		.student_comment {
+			font-size: 0.9em;
+			color: rgb(71, 69, 69);
+		}
+
+		.feedback_footer {
+			small {
+				color: rgb(94, 100, 104);
+				cursor: pointer;
+			}
+			padding: 1em 1em 0 1em;
+		}
 	}
 }
