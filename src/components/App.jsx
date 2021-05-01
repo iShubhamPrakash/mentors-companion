@@ -1,17 +1,24 @@
+import { useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./modules/Home/Home";
-import Demo1 from "./modules/Demo1/pages/Demo1";
-import Demo2 from "./modules/Demo2/pages/Demo2";
-import NOT_FOUND from "./modules/NOT_FOUND/NOT_FOUND";
+import Home from "../pages/Home";
+import NOT_FOUND from "../pages/NOT_FOUND";
+import { Feedback } from "./Feedback";
+import { InputBox } from "./InputBox";
+import { Nav } from "./Nav";
 
 function App() {
+	const [feedbackdata, setFeedbackdata] = useState([]);
 	return (
-		<Switch>
-      	<Route exact path="/" component={Home} />	
-      	<Route exact path="/demo1" component={Demo1} />	
-      	<Route exact path="/demo2" component={Demo2} />	
-      	<Route exact path="" component={NOT_FOUND} />	
-		</Switch>
+		<div className="app">
+			<Nav />
+			<InputBox setFeedbackdata={setFeedbackdata} />
+
+			<div className="feedback_container">
+				{feedbackdata.map((data) => (
+					<Feedback data={data} />
+				))}
+			</div>
+		</div>
 	);
 }
 

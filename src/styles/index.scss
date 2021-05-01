@@ -1,5 +1,28 @@
 // CSS Reset
 @import "./normalize.scss";
 
-
 // Global CSS here
+.nav {
+	background: pink;
+}
+
+.app {
+	background: yellow;
+}
+
+.inputBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.feedback_container {
+	background: greenyellow;
+
+	.feedback {
+		background: rgb(244, 244, 198);
+		margin: 1em;
+		padding: 1em;
+	}
+}
