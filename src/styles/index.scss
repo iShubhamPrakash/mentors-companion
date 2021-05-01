@@ -106,3 +106,32 @@
 		}
 	}
 }
+
+.disclaimer_container {
+	background: rgb(254, 242, 229);
+	padding: 1.8em;
+	margin: 1.8em;
+	border-radius: 8px;
+
+	h1 {
+		font-size: 2em;
+		font-weight: bold;
+	}
+
+	h2 {
+		font-weight: bold;
+	}
+
+	a {
+		color: #02b3e4;
+	}
+
+	ol {
+		padding-left: 2em;
+	}
+}
+
+.footer {
+	text-align: center;
+	padding: 0.5em;
+}

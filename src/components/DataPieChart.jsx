@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
 
 const COLORS = ["#34ef9e", "#FFBB27", "#ff7768"];
+const defaultChartData = [
+	{ name: "Rating 5", value: 0 },
+	{ name: "Rating 3", value: 0 },
+	{ name: "Rating 1", value: 0 },
+];
 
 export default function DataPieChart({ feedbackdata }) {
-	const [ratingData, setRatingData] = useState([
-		[
-			{ name: "Rating 5", value: 0 },
-			{ name: "Rating 3", value: 0 },
-			{ name: "Rating 1", value: 0 },
-		],
-	]);
+	const [ratingData, setRatingData] = useState(defaultChartData);
 
 	useEffect(() => {
 		let ratingDistribution = { 1: 0, 3: 0, 5: 0 };
@@ -28,21 +27,17 @@ export default function DataPieChart({ feedbackdata }) {
 			{ name: "Rating 1", value: ratingDistribution[1] },
 		]);
 		return () => {
-			setRatingData([
-				{ name: "Rating 5", value: 0 },
-				{ name: "Rating 3", value: 0 },
-				{ name: "Rating 1", value: 0 },
-			]);
+			setRatingData(defaultChartData);
 		};
-	}, []);
+	}, [feedbackdata]);
 
 	return (
-		<PieChart width={500} height={500}>
+		<PieChart width={400} height={360}>
 			<Pie
 				dataKey="value"
 				data={ratingData}
-				cx={250}
-				cy={250}
+				cx={200}
+				cy={180}
 				innerRadius={60}
 				outerRadius={150}
 				fill="#82ca9d"

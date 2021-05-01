@@ -2,35 +2,53 @@ import { useState } from "react";
 import { Feedback } from "./Feedback";
 import { InputBox } from "./InputBox";
 
-import { Grid, GridItem, Heading } from "@chakra-ui/react";
+import { Grid, GridItem, Heading, Link } from "@chakra-ui/react";
 import DataPieChart from "./DataPieChart";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+
 import { defaultData } from "../default_data.js";
+import { Disclaimer } from "./Disclaimer";
+import { Footer } from "./Footer";
 
 function App() {
-	const [feedbackdata, setFeedbackdata] = useState(defaultData);
+	const [feedbackdata, setFeedbackdata] = useState([]);
 	return (
 		<div className="app">
 			<Grid
 				templateRows="repeat(1, 1fr)"
 				templateColumns="repeat(7, 1fr)"
-				gap={4}
+				gap={0}
 			>
 				<GridItem colSpan={5}>
 					<Heading pl={4} as="h3" size="md">
 						Reviews History
 					</Heading>
 					<div className="feedback_container">
-						{feedbackdata.map((data) => (
-							<Feedback data={data} />
-						))}
+						{feedbackdata && feedbackdata.length ? (
+							feedbackdata.map((data) => <Feedback data={data} />)
+						) : (
+							<Disclaimer />
+						)}
 					</div>
 				</GridItem>
 				<GridItem colSpan={2} p={1} pt={10}>
-					{" "}
+					<Heading p={1} as="h3" size="sm" align="left">
+						<Link
+							href="https://review-api.udacity.com/api/v1/me/student_feedbacks"
+							isExternal
+						>
+							Enter the JSON data obtained from here{" "}
+							<ExternalLinkIcon mx="2px" />
+						</Link>
+					</Heading>
 					<InputBox setFeedbackdata={setFeedbackdata} />
+					<Heading p={1} as="h3" size="sm" align="left">
+						Rating distribution
+					</Heading>
 					<DataPieChart feedbackdata={feedbackdata} />
 				</GridItem>
 			</Grid>
+			<Footer />
 		</div>
 	);
 }
