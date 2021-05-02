@@ -8,12 +8,7 @@ import {
 	Box,
 	Badge,
 	Heading,
-	Stack,
 	Tag,
-	TagLabel,
-	TagLeftIcon,
-	TagRightIcon,
-	TagCloseButton,
 	Link,
 } from "@chakra-ui/react";
 
