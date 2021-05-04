@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Feedback } from "./Feedback";
 import { InputBox } from "./InputBox";
 
@@ -9,9 +9,22 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { defaultData } from "../default_data.js";
 import { Disclaimer } from "./Disclaimer";
 import { Footer } from "./Footer";
+import { retriveLocalStorage } from "../Utils/permanentStorage";
 
 function App() {
 	const [feedbackdata, setFeedbackdata] = useState([]);
+
+	useEffect(() => {
+		// Get previously saved data from the localStorage and display in the UI!!
+		try {
+			const data = retriveLocalStorage();
+			setFeedbackdata(JSON.parse(data));
+		} catch (e) {
+			// No data found in localStorage -> display default data
+			setFeedbackdata(defaultData);
+		}
+	}, []);
+
 	return (
 		<div className="app">
 			<Grid
@@ -25,7 +38,7 @@ function App() {
 					</Heading>
 					<div className="feedback_container">
 						{feedbackdata && feedbackdata.length ? (
-							feedbackdata.map((data) => <Feedback data={data} />)
+							feedbackdata.map((data) => <Feedback data={data} key={data.id} />)
 						) : (
 							<Disclaimer />
 						)}
@@ -41,7 +54,10 @@ function App() {
 							<ExternalLinkIcon mx="2px" />
 						</Link>
 					</Heading>
-					<InputBox setFeedbackdata={setFeedbackdata} />
+					<InputBox
+						feedbackdata={feedbackdata}
+						setFeedbackdata={setFeedbackdata}
+					/>
 					<Heading p={1} as="h3" size="sm" align="left">
 						Rating distribution
 					</Heading>

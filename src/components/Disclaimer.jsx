@@ -50,46 +50,44 @@ export const Disclaimer = () => {
 			<br />
 
 			<h2>How to use this tool?</h2>
-			<p>
-				<ol>
-					<li>
-						Go to{" "}
-						<a
-							href="https://review-api.udacity.com/api/v1/me/student_feedbacks"
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							this link
-						</a>{" "}
-					</li>
 
-					<li>Copy the raw JSON data obtained from this API.</li>
-					<li>
-						Paste it in the textbox at the top right corner and click Analyse
-						button
-					</li>
-				</ol>
-			</p>
+			<ol>
+				<li>
+					Go to{" "}
+					<a
+						href="https://review-api.udacity.com/api/v1/me/student_feedbacks"
+						target="_blank"
+						rel="noreferrer noopener"
+					>
+						this link
+					</a>{" "}
+				</li>
+
+				<li>Copy the raw JSON data obtained from this API.</li>
+				<li>
+					Paste it in the textbox at the top right corner and click Analyse
+					button
+				</li>
+			</ol>
 
 			<br />
 
 			<h2>Not working? Here are some tips</h2>
-			<p>
-				<ol>
-					<li>
-						Make sure you are signed in to the Udacity mentors dashboard in the
-						same browser.
-					</li>
 
-					<li>
-						Make sure you copy-paste the JSON in raw format. Some of us might
-						have certain JSON viewer extensions installed in the browser because
-						of which correct JSON data does not get copied to the click board.{" "}
-						You must copy-paste data in raw JSON format.
-					</li>
-					<li>Still not working? Let me know the details. I'll help you.</li>
-				</ol>
-			</p>
+			<ol>
+				<li>
+					Make sure you are signed in to the Udacity mentors dashboard in the
+					same browser.
+				</li>
+
+				<li>
+					Make sure you copy-paste the JSON in raw format. Some of us might have
+					certain JSON viewer extensions installed in the browser because of
+					which correct JSON data does not get copied to the click board. You
+					must copy-paste data in raw JSON format.
+				</li>
+				<li>Still not working? Let me know the details. I'll help you.</li>
+			</ol>
 
 			<br />
 

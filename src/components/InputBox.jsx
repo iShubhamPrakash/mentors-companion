@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import { Textarea, Button } from "@chakra-ui/react";
+import { mergeTwoFeedbackDataArray } from "../Utils/mergeFeedbackData";
+import { updateLocalStorage } from "../Utils/permanentStorage";
 
-export const InputBox = ({ setFeedbackdata }) => {
+export const InputBox = (props) => {
+	const { feedbackdata, setFeedbackdata } = props;
+
 	const [value, setValue] = useState("");
 
-	const handleAnalyse = async () => {
+	const handleAnalyse = () => {
 		try {
-			const jsonToObject = await JSON.parse(value);
+			const newFeedBackData = JSON.parse(value);
 
-			console.log(jsonToObject);
-			setFeedbackdata(jsonToObject);
+			const totalFeedbackData = mergeTwoFeedbackDataArray(
+				feedbackdata,
+				newFeedBackData
+			);
+
+			//update localStorage
+			updateLocalStorage(totalFeedbackData);
+			setFeedbackdata(totalFeedbackData);
 		} catch (e) {
 			console.log(e);
 			alert(
