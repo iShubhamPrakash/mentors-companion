@@ -91,12 +91,15 @@ export const Disclaimer = () => {
 
 			<br />
 
-			<h2>This is too simple/not useful!!</h2>
+			<h2>Author</h2>
 			<p>
-				Don't worry!! I'll be adding more features soon. If you have some cool
-				ideas and want to add some more features then you are welcome. The
-				project is open-source on my GitHub account. Send me PR and I'll happily
-				accept it 😍
+				<a
+					href="https://shubhamprakash.dev"
+					target="_blank"
+					rel="noreferrer noopener"
+				>
+					Shubham Prakash
+				</a>{" "}
 			</p>
 
 			<br />
@@ -104,7 +107,8 @@ export const Disclaimer = () => {
 			<h2>Disclaimer</h2>
 			<p>
 				This is not an official tool from Udacity. I created this for myself and
-				for those mentors who can be benefited from this.
+				for those mentors who want to use a better tool than a boring JSON
+				viewer to view the students' feedback.
 			</p>
 		</div>
 	);

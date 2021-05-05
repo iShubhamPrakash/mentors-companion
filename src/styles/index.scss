@@ -1,6 +1,8 @@
 // CSS Reset
 @import "./normalize.scss";
 
+$LOGO_BLUE: #02b3e4;
+
 // Global CSS here
 .nav {
 	background: rgb(255, 255, 255);
@@ -15,22 +17,30 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	padding-left: 1em;
+	padding-left: 0em;
 
 	#logo {
 		width: 35px;
 		height: 35px;
-		fill: #02b3e4;
+		fill: $LOGO_BLUE;
 		cursor: pointer;
+	}
+
+	a {
+		padding: 0 1em;
+	}
+
+	.active {
+		color: $LOGO_BLUE;
 	}
 
 	.websiteName {
 		font-size: 1.5em;
 		text-transform: capitalize;
-		padding-left: 0.5em;
-		padding-right: 1em;
 		font-weight: bold;
 		cursor: pointer;
+		color: rgb(27, 28, 31);
+		margin-left: -0.5em;
 	}
 
 	.spacer {
@@ -87,7 +97,7 @@
 			top: 1.2em;
 		}
 		.project_name {
-			color: #02b3e4;
+			color: $LOGO_BLUE;
 			// color: #053872;
 
 			cursor: pointer;
@@ -123,7 +133,7 @@
 	}
 
 	a {
-		color: #02b3e4;
+		color: $LOGO_BLUE;
 	}
 
 	ol {

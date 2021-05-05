@@ -8,7 +8,6 @@ import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 import { defaultData } from "../default_data.js";
 import { Disclaimer } from "./Disclaimer";
-import { Footer } from "./Footer";
 import { retriveLocalStorage } from "../Utils/permanentStorage";
 
 function App() {
@@ -64,7 +63,6 @@ function App() {
 					<DataPieChart feedbackdata={feedbackdata} />
 				</GridItem>
 			</Grid>
-			<Footer />
 		</div>
 	);
 }
