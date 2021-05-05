@@ -1,20 +1,8 @@
 import React from "react";
-import {
-	Stat,
-	StatLabel,
-	StatNumber,
-	StatHelpText,
-	StatArrow,
-	StatGroup,
-	Stack,
-	StackDivider,
-	HStack,
-	VStack,
-	Box,
-} from "@chakra-ui/react";
+import { Stat, StatLabel, StatNumber, HStack, Box } from "@chakra-ui/react";
 
 export const RatingStats = (props) => {
-	const { totalRevies, NPFS } = props;
+	const { totalRevies } = props;
 	return (
 		<div className="ratingStat_container">
 			<HStack spacing="24px">
