@@ -1,12 +1,27 @@
 // CSS Reset
 @import "./normalize.scss";
 
+// Constants
 $LOGO_BLUE: #02b3e4;
+$NAV_HEIGHT: 60px;
 
+// mixins
+@mixin hideScrollBars {
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Hide scrollbar for IE, Edge and Firefox */
+	& {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+}
 // Global CSS here
 .nav {
 	background: rgb(255, 255, 255);
-	height: 60px;
+	height: $NAV_HEIGHT;
 	box-shadow: 0 3.4px 6.1px rgba(0, 0, 0, 0.008),
 		0 9.5px 16.9px rgba(0, 0, 0, 0.011), 0 22.9px 40.7px rgba(0, 0, 0, 0.013),
 		0 76px 135px rgba(0, 0, 0, 0.02);
@@ -57,6 +72,7 @@ $LOGO_BLUE: #02b3e4;
 .app {
 	background: #edf2f6;
 	padding-top: 1em;
+	@include hideScrollBars;
 }
 
 .inputBox {
@@ -64,13 +80,15 @@ $LOGO_BLUE: #02b3e4;
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
-	margin: 1em;
+	margin: 1em 0;
+	width: 90%;
 
 	textarea {
 		background: #fff;
 		box-shadow: 0 0px 15.2px rgba(0, 0, 0, 0.021),
 			0 0px 121px rgba(0, 0, 0, 0.04);
 		padding: 1em;
+		width: 100%;
 	}
 
 	button {
@@ -78,6 +96,18 @@ $LOGO_BLUE: #02b3e4;
 		margin: 0.5em auto;
 		background: #d1dbe0;
 	}
+}
+
+.leftContainer,
+.rightContainer {
+	height: 100vh;
+	max-height: calc(100vh - $NAV_HEIGHT);
+	overflow-y: auto;
+	@include hideScrollBars;
+}
+
+.rightContainer {
+	padding-left: 0.5em;
 }
 
 .feedback_container {
@@ -144,4 +174,7 @@ $LOGO_BLUE: #02b3e4;
 .footer {
 	text-align: center;
 	padding: 0.5em;
+	box-shadow: 0 3.4px 6.1px rgba(0, 0, 0, 0.008),
+		0 9.5px 16.9px rgba(0, 0, 0, 0.011), 0 22.9px 40.7px rgba(0, 0, 0, 0.013),
+		0 76px 135px rgba(0, 0, 0, 0.02);
 }

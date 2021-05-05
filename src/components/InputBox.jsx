@@ -31,11 +31,11 @@ export const InputBox = (props) => {
 	return (
 		<div className="inputBox">
 			<Textarea
-				placeholder="Enter JSON data obtained from https://review-api.udacity.com/api/v1/me/student_feedbacks"
+				placeholder="Use the above link to get you students' feedback in JSON format..."
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
 			/>
-			<Button onClick={handleAnalyse}>Analyse Feedback</Button>
+			<Button onClick={handleAnalyse}>Analyze Feedback</Button>
 		</div>
 	);
 };
