@@ -1,5 +1,8 @@
 export const mergeTwoFeedbackDataArray = (prevData, newData) => {
 	try {
+		// No need to merge in previData empty
+		if (prevData.length === 0) return newData;
+
 		const latestReviewIdFromPrevData = prevData[0].id;
 
 		const newFeedbackData = [];
