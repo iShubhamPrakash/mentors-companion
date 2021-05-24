@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Textarea, Button } from "@chakra-ui/react";
 import { mergeTwoFeedbackDataArray } from "../Utils/mergeFeedbackData";
 import { updateLocalStorage } from "../Utils/permanentStorage";
+import { hasNewData } from "../Utils/hasNewData";
 
 export const InputBox = (props) => {
 	const { feedbackdata, setFeedbackdata } = props;
@@ -12,14 +13,20 @@ export const InputBox = (props) => {
 		try {
 			const newFeedBackData = JSON.parse(value);
 
-			const totalFeedbackData = mergeTwoFeedbackDataArray(
-				feedbackdata,
-				newFeedBackData
-			);
+			if (hasNewData(feedbackdata, newFeedBackData)) {
+				const totalFeedbackData = mergeTwoFeedbackDataArray(
+					feedbackdata,
+					newFeedBackData
+				);
 
-			//update localStorage
-			updateLocalStorage(totalFeedbackData);
-			setFeedbackdata(totalFeedbackData);
+				//update localStorage
+				updateLocalStorage(totalFeedbackData);
+				setFeedbackdata(totalFeedbackData);
+			} else {
+				alert(
+					"No new data to append."
+				)
+			}
 		} catch (e) {
 			console.log(e);
 			alert(
