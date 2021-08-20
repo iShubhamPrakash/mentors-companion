@@ -46,12 +46,12 @@ export const Feedback = ({ data }) => {
 				{data.responses.feedback.map((feedbackData) => (
 					<AccordionItem key={data.submission_id + feedbackData.key}>
 						<h2>
-							<AccordionButton _expanded={{ bg: "#f4f7f9", color: "#044793" }}>
+							<AccordionButton _expanded={{ bg: "#f4f7f9", color: "#044793" }} bg={feedbackData.comment ? "#e3f2fd" : ""}>
 								<Box flex="5" textAlign="left">
 									<strong>
 										📌 {feedbackData.key.split("_")[1].toUpperCase()} &nbsp;
 									</strong>
-									{feedbackData.question_text}
+									{feedbackData.question_text} {feedbackData.comment && <i>(Student's comment available)</i>}
 								</Box>
 								<Box flex="1" textAlign="right">
 									<Badge colorScheme={badgeColor[feedbackData.rating]}>
