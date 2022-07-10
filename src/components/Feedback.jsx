@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
 	Accordion,
 	AccordionItem,
@@ -10,16 +10,16 @@ import {
 	Heading,
 	Tag,
 	Link,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
 
-import { ExternalLinkIcon, StarIcon } from "@chakra-ui/icons";
+import { ExternalLinkIcon, StarIcon } from '@chakra-ui/icons';
 
-import moment from "moment";
+import moment from 'moment';
 
 const badgeColor = {
-	1: "red",
-	3: "yellow",
-	5: "green",
+	1: 'red',
+	3: 'yellow',
+	5: 'green',
 };
 export const Feedback = ({ data }) => {
 	return (
@@ -33,7 +33,7 @@ export const Feedback = ({ data }) => {
 			</Box>
 
 			<Tag className="review_link">
-				{" "}
+				{' '}
 				<Link
 					href={`https://review.udacity.com/#!/reviews/${data.submission_id}`}
 					isExternal
@@ -43,28 +43,36 @@ export const Feedback = ({ data }) => {
 			</Tag>
 
 			<Accordion allowToggle allowMultiple>
-				{data.responses.feedback.map((feedbackData) => (
+				{data?.responses?.feedback?.map((feedbackData) => (
 					<AccordionItem key={data.submission_id + feedbackData.key}>
 						<h2>
-							<AccordionButton _expanded={{ bg: "#f4f7f9", color: "#044793" }}>
+							<AccordionButton
+								_expanded={{ bg: '#f4f7f9', color: '#044793' }}
+								style={{
+									boxSizing: 'border-box',
+									borderLeft: `6px solid ${
+										feedbackData.comment?.length > 0 ? 'lightgreen' : 'pink'
+									}`,
+								}}
+							>
 								<Box flex="5" textAlign="left">
 									<strong>
-										📌 {feedbackData.key.split("_")[1].toUpperCase()} &nbsp;
+										📌 {feedbackData.key.split('_')[1].toUpperCase()} &nbsp;
 									</strong>
 									{feedbackData.question_text}
 								</Box>
 								<Box flex="1" textAlign="right">
 									<Badge colorScheme={badgeColor[feedbackData.rating]}>
 										{feedbackData.rating}
-									</Badge>{" "}
+									</Badge>{' '}
 									&nbsp;
 									{Array(5)
-										.fill("")
+										.fill('')
 										.map((_, i) => (
 											<StarIcon
 												key={i}
 												color={
-													i < feedbackData.rating ? "green.300" : "gray.300"
+													i < feedbackData.rating ? 'green.300' : 'gray.300'
 												}
 											/>
 										))}
@@ -76,7 +84,7 @@ export const Feedback = ({ data }) => {
 						</h2>
 						<AccordionPanel pb={4}>
 							<div className="student_comment">
-								📝 {feedbackData.comment ? feedbackData.comment : "..."}
+								📝 {feedbackData.comment ? feedbackData.comment : '...'}
 							</div>
 						</AccordionPanel>
 					</AccordionItem>
@@ -84,17 +92,17 @@ export const Feedback = ({ data }) => {
 			</Accordion>
 			<Box flex="1" textAlign="right" className="feedback_footer">
 				<small title="Total points">
-					⭐️{" "}
+					⭐️{' '}
 					{data.responses.feedback
 						.map((fd) => parseInt(fd.rating))
 						.reduce((a, c) => a + c)}
 					/ 25
-				</small>{" "}
+				</small>{' '}
 				&nbsp;&nbsp;&nbsp;&nbsp;
-				<small title="Submission Id">🔖 {data.submission_id}</small>{" "}
+				<small title="Submission Id">🔖 {data.submission_id}</small>{' '}
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				<small title="Review date">
-					🗓 {moment(data.created_at).format("LL")}
+					🗓 {moment(data.created_at).format('LL')}
 				</small>
 			</Box>
 		</div>
