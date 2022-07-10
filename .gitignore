@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/default_data.js
+
+
+.next
